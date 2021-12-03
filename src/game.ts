@@ -17,14 +17,14 @@ export default class Demo extends Phaser.Scene {
 
   create() {
     const map = this.make.tilemap({ key: "map" });
-    const tileset = map.addTilesetImage("tuxmon-sample-32px-extruded", "tiles");
-    const debugTileset = map.addTilesetImage("debug", "debug");
-    const foodTileset = map.getTileset("food-OCAL");
-    const belowLayer = map.createLayer("Below Player", tileset, 0, 0);
-    const worldLayer = map.createLayer("World", tileset, 0, 0);
-    const aboveLayer = map.createLayer("Above Player", tileset, 0, 0);
-    const myNewLayer = map.createLayer("MyNewLayer", [debugTileset], 0, 0);
-    const tileGid = debugTileset.firstgid;
+    const tileset1 = map.addTilesetImage(
+      "tuxmon-sample-32px-extruded",
+      "tiles"
+    );
+    const tileset2 = map.getTileset("food-OCAL");
+    const tileset3 = map.addTilesetImage("debug", "debug");
+    const myNewLayer = map.createLayer("MyNewLayer", [tileset3], 0, 0);
+    const tileGid = tileset3.firstgid;
     map.putTileAt(tileGid, 5, 5, false, myNewLayer);
   }
 }
